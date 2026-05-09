@@ -1,3 +1,4 @@
+```kql
 SigninLogs
 | where ResultType == 0
 | summarize 
@@ -6,3 +7,4 @@ SigninLogs
     SigninCount = count()
   by UserPrincipalName
 | where array_length(Locations) > 1
+```
