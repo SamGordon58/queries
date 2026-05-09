@@ -1,0 +1,8 @@
+SigninLogs
+| where ResultType == 0
+| summarize 
+    Locations = make_set(Location),
+    IPs = make_set(IPAddress),
+    SigninCount = count()
+  by UserPrincipalName
+| where array_length(Locations) > 1
